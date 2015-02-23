@@ -1,0 +1,195 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% flow diagram 1                                                               %
+%                                                                              %
+% version: 2015-02-23T1653Z                                                    %
+%                                                                              %
+% Will Breaden Madden                                                          %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% DESCRIPTION                                                                  %
+%                                                                              %
+% This program produces a flow diagram.                                        %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% LICENCE INFORMATION                                                          %
+%                                                                              %
+% This program produces a document.                                            %
+%                                                                              %
+% copyright (C) 2015 William Breaden Madden                                    %
+%                                                                              %
+% This software is released under the terms of the GNU General Public License  %
+% version 3 (GPLv3).                                                           %
+%                                                                              %
+% This program is free software: you can redistribute it and/or modify it      %
+% under the terms of the GNU General Public License as published by the Free   %
+% Software Foundation, either version 3 of the License, or (at your option)    %
+% any later version.                                                           %
+%                                                                              %
+% This program is distributed in the hope that it will be useful, but WITHOUT  %
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or        %
+% FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for    %
+% more details.                                                                %
+%                                                                              %
+% For a copy of the GNU General Public License, see                            %
+% <http://www.gnu.org/licenses/>.                                              %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{fit, arrows, calc, positioning}
+
+\begin{document}
+
+\tikzstyle{empty} = [
+]
+
+\tikzstyle{redRectangle} = [
+    rectangle,
+    draw,
+    fill=red!20,
+    node distance=0.65 cm,
+    text width=7 em,
+    text centered,
+    rounded corners,
+    minimum height=4 em,
+    minimum width=3 cm,
+    thick
+]
+
+\tikzstyle{blueRectangle} = [
+    rectangle,
+    draw,
+    fill=blue!20,
+    node distance=1.5 cm,
+    text width=7 em,
+    text centered,
+    rounded corners,
+    minimum height=4 em,
+    minimum width=3 cm,
+    thick
+]
+
+\tikzstyle{yellowRectangle} = [
+    rectangle,
+    draw,
+    fill=yellow!20,
+    node distance=1.5 cm,
+    text width=7 em,
+    text centered,
+    rounded corners,
+    minimum height=4 em,
+    minimum width=3 cm,
+    thick
+]
+
+\tikzstyle{greenRectangle} = [
+    rectangle,
+    draw,
+    fill=green!20,
+    node distance=1.5 cm,
+    text width=7 em,
+    text centered,
+    rounded corners,
+    minimum height=4 em,
+    minimum width=3 cm,
+    thick
+]
+
+\tikzstyle{blueDiamond} = [
+    diamond,
+    draw,
+    fill=blue!20,
+    node distance=1.5 cm,
+    text width=7 em,
+    text badly centered,
+    inner sep=0pt,
+    thick
+]
+
+\tikzstyle{blueEllipse} = [
+    ellipse,
+    draw,
+    fill=blue!20,
+    node distance=1.5 cm,
+    text width=7 em,
+    thick
+]
+
+\tikzstyle{container} = [
+    rectangle,
+    draw,
+    inner sep=0.2 cm,
+    dashed
+]
+
+\tikzstyle{line} = [
+    draw,
+    -latex',
+    thick
+]
+
+\begin{tikzpicture}[auto]
+
+    \node [empty](origin){};
+    \node [redRectangle, right=of origin](primaryxAODData){
+        primary xAOD data
+    };
+    \node [redRectangle, left=of origin](primaryxAODMC){
+        primary xAOD MC
+    };
+    \node [blueRectangle, below=of origin](DxAOD0And1Lepton){
+        DxAOD\\0 and 1 lepton
+    };
+    \node [blueRectangle, left=of DxAOD0And1Lepton](DxAODMC){
+        DxAOD\\MC (also called TOPQ1)
+    };
+    \node [blueRectangle, right=of DxAOD0And1Lepton](DxAOD2Leptons){
+        DxAOD\\2 leptons
+    };
+    \node [yellowRectangle, below=of DxAOD0And1Lepton](AnalysisTopPackage){
+        AnalysisTop package\\TTHbbLeptonic
+    };
+    \node [blueRectangle, below=of AnalysisTopPackage](Mini-xAODorflatn-tuple){
+        Mini-xAOD or flat n-tuple
+    };
+    \node [greenRectangle, below=of Mini-xAODorflatn-tuple](plots){
+        plots
+    };
+
+    \node [container, fit=(primaryxAODData)(origin)(primaryxAODMC)](container1){
+    };
+    \node [container, fit=(AnalysisTopPackage)](container2){
+    };
+    \node [container, fit=(plots)](container3){
+    };
+    
+    \path [line] (primaryxAODMC) -- (DxAODMC) node[pos=0.7, left]{
+        event slimming~~
+    };
+    \path [line] (primaryxAODData) -- (DxAOD0And1Lepton) node[pos=0.7, left]{
+        TOPQ1~~
+    };
+    \path [line] (primaryxAODData) -- (DxAOD2Leptons) node[pos=0.7, right]{
+        ~~TOPQ2
+    };
+
+    \path [line] (DxAODMC) -- (AnalysisTopPackage);
+    \path [line] (DxAOD0And1Lepton) -- (AnalysisTopPackage);
+    \path [line] (DxAOD2Leptons) -- (AnalysisTopPackage);
+
+    \path [line] (AnalysisTopPackage) -- (Mini-xAODorflatn-tuple);
+    \path [line] (Mini-xAODorflatn-tuple) -- (plots) node[pos=0.5, right]{
+        scripts
+    };
+
+    \node at (container1.north)[above]{production system};
+    \node at (container2.south east)[right]{user grid or local};
+    \node at (container3.south east)[right]{user grid or local};
+
+\end{tikzpicture}
+
+\end{document}
