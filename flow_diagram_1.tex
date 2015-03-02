@@ -2,7 +2,7 @@
 %                                                                              %
 % flow diagram 1                                                               %
 %                                                                              %
-% version: 2015-02-23T1653Z                                                    %
+% version: 2015-03-02T1111Z                                                    %
 %                                                                              %
 % Will Breaden Madden                                                          %
 %                                                                              %
@@ -47,10 +47,10 @@
 \tikzstyle{empty} = [
 ]
 
-\tikzstyle{redRectangle} = [
+\tikzstyle{Rectangle1} = [
     rectangle,
     draw,
-    fill=red!20,
+    fill=#1!20, % e.g. red!20
     node distance=0.65 cm,
     text width=7 em,
     text centered,
@@ -60,10 +60,10 @@
     thick
 ]
 
-\tikzstyle{blueRectangle} = [
+\tikzstyle{Rectangle2} = [
     rectangle,
     draw,
-    fill=blue!20,
+    fill=#1!20, % e.g. red!20
     node distance=1.5 cm,
     text width=7 em,
     text centered,
@@ -73,36 +73,10 @@
     thick
 ]
 
-\tikzstyle{yellowRectangle} = [
-    rectangle,
-    draw,
-    fill=yellow!20,
-    node distance=1.5 cm,
-    text width=7 em,
-    text centered,
-    rounded corners,
-    minimum height=4 em,
-    minimum width=3 cm,
-    thick
-]
-
-\tikzstyle{greenRectangle} = [
-    rectangle,
-    draw,
-    fill=green!20,
-    node distance=1.5 cm,
-    text width=7 em,
-    text centered,
-    rounded corners,
-    minimum height=4 em,
-    minimum width=3 cm,
-    thick
-]
-
-\tikzstyle{blueDiamond} = [
+\tikzstyle{Diamond} = [
     diamond,
     draw,
-    fill=blue!20,
+    fill=#1!20, % e.g. red!20
     node distance=1.5 cm,
     text width=7 em,
     text badly centered,
@@ -110,10 +84,10 @@
     thick
 ]
 
-\tikzstyle{blueEllipse} = [
+\tikzstyle{Ellipse} = [
     ellipse,
     draw,
-    fill=blue!20,
+    fill=#1!20, % e.g. red!20
     node distance=1.5 cm,
     text width=7 em,
     thick
@@ -135,28 +109,28 @@
 \begin{tikzpicture}[auto]
 
     \node [empty](origin){};
-    \node [redRectangle, right=of origin](primaryxAODData){
+    \node [Rectangle1=red, right=of origin](primaryxAODData){
         primary xAOD data
     };
-    \node [redRectangle, left=of origin](primaryxAODMC){
+    \node [Rectangle1=red, left=of origin](primaryxAODMC){
         primary xAOD MC
     };
-    \node [blueRectangle, below=of origin](DxAOD0And1Lepton){
+    \node [Rectangle2=blue, below=of origin](DxAOD0And1Lepton){
         DxAOD\\0 and 1 lepton
     };
-    \node [blueRectangle, left=of DxAOD0And1Lepton](DxAODMC){
+    \node [Rectangle2=blue, left=of DxAOD0And1Lepton](DxAODMC){
         DxAOD\\MC (also called TOPQ1)
     };
-    \node [blueRectangle, right=of DxAOD0And1Lepton](DxAOD2Leptons){
+    \node [Rectangle2=blue, right=of DxAOD0And1Lepton](DxAOD2Leptons){
         DxAOD\\2 leptons
     };
-    \node [yellowRectangle, below=of DxAOD0And1Lepton](AnalysisTopPackage){
+    \node [Rectangle2=yellow, below=of DxAOD0And1Lepton](AnalysisTopPackage){
         AnalysisTop package\\TTHbbLeptonic
     };
-    \node [blueRectangle, below=of AnalysisTopPackage](Mini-xAODorflatn-tuple){
+    \node [Rectangle2=blue, below=of AnalysisTopPackage](Mini-xAODorflatn-tuple){
         Mini-xAOD or flat n-tuple
     };
-    \node [greenRectangle, below=of Mini-xAODorflatn-tuple](plots){
+    \node [Rectangle2=green, below=of Mini-xAODorflatn-tuple](plots){
         plots
     };
 
