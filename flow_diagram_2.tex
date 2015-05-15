@@ -1,0 +1,72 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% flow diagram 2                                                               %
+%                                                                              %
+% version: 2015-05-15T1449Z                                                    %
+%                                                                              %
+% Will Breaden Madden                                                          %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% DESCRIPTION                                                                  %
+%                                                                              %
+% This program produces a flow diagram.                                        %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% LICENCE INFORMATION                                                          %
+%                                                                              %
+% This program produces a document.                                            %
+%                                                                              %
+% copyright (C) 2015 William Breaden Madden                                    %
+%                                                                              %
+% This software is released under the terms of the GNU General Public License  %
+% version 3 (GPLv3).                                                           %
+%                                                                              %
+% This program is free software: you can redistribute it and/or modify it      %
+% under the terms of the GNU General Public License as published by the Free   %
+% Software Foundation, either version 3 of the License, or (at your option)    %
+% any later version.                                                           %
+%                                                                              %
+% This program is distributed in the hope that it will be useful, but WITHOUT  %
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or        %
+% FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for    %
+% more details.                                                                %
+%                                                                              %
+% For a copy of the GNU General Public License, see                            %
+% <http://www.gnu.org/licenses/>.                                              %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{fit, arrows, calc, positioning}
+
+\begin{document}
+
+\begin{figure}[h]
+\begin{center}
+\tikzstyle{block} = [rectangle, draw, fill=black!30, text width=2.5em, text centered, minimum height=2.5em]
+\tikzstyle{line} = [draw, thick, -latex']
+\begin{tikzpicture}[node distance = 2.5cm, auto]
+\node [block] (Hits) {Hits};
+\node [block, above right of=Hits] (RAW) {RAW};
+\node [block, below right of=Hits] (RDO) {RDO};
+\node [block, below right of=RAW] (ESD) {ESD};
+\node [block, right of=ESD] (AOD) {AOD};
+\node [block, below of=AOD] (HIST) {HIST};
+\node [block, above right of=AOD] (D3PD) {D3PD};
+\path [line] (Hits) -- (RDO);
+\path [line] (RAW) -- (ESD);
+\path [line] (RDO) -- (ESD);
+\path [line] (ESD) -- (AOD);
+\path [line] (ESD) -- (HIST);
+\path [line] (AOD) -- (HIST);
+\path [line] (ESD) -- (D3PD);
+\path [line] (AOD) -- (D3PD);
+\end{tikzpicture}
+\end{center}
+\caption{data transformation workflow paths in Job Transforms}
+\end{figure}
+
+\end{document}
