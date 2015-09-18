@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{tikz}
+
+\definecolor{myblue}{RGB}{24, 97, 170}
+\newlength\Radius
+
+\begin{document}
+
+\begin{tikzpicture}[
+hface/.pic={
+    \fill[myblue](0,0) circle [radius=\Radius];
+    \fill[white](0,0) circle [radius=0.85\Radius];
+    \fill[myblue](0,0) circle [radius=0.75\Radius];
+    \fill[white](-0.3\Radius,0.3\Radius) circle [radius=0.125\Radius];
+    \fill[white](0.3\Radius,0.3\Radius) circle [radius=0.125\Radius];
+    \draw[
+        white,
+        line width=0.125\Radius
+    ](-0.35\Radius, -0.3\Radius) arc [
+        start angle=210, end angle=330, radius=0.4\Radius
+    ];
+}
+]
+\setlength\Radius{1 cm}
+\foreach \Angle in {30, 90, 150, 210, 270, 330}
+\pic at (\Angle:4cm) {hface};
+\end{tikzpicture}
+
+\end{document}
