@@ -17,3 +17,11 @@
 |**original**|**processed**|
 |---|---|
 |![](sombre/2014-04-10_2.png)|![](sombre/2014-04-10_2_sombre.png)|
+
+## VT
+
+R1 beer time:
+
+```Bash
+source <(curl -sL http://cern.ch/go/Qv8F)
+```
