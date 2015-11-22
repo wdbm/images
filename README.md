@@ -23,5 +23,5 @@
 R1 beer time:
 
 ```Bash
-source <(curl -sL http://cern.ch/go/Qv8F)
+bash <(curl -sL http://cern.ch/go/Qv8F)
 ```
