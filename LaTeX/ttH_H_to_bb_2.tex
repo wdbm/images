@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% ttH_H_to_bb_2                                                                %
+%                                                                              %
+% version: 2016-04-12T1156Z                                                    %
+%                                                                              %
+% Will Breaden Madden                                                          %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% DESCRIPTION                                                                  %
+%                                                                              %
+% This program produces a Feynman diagram.                                     %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% LICENCE INFORMATION                                                          %
+%                                                                              %
+% This program produces a document.                                            %
+%                                                                              %
+% copyright (C) 2016 William Breaden Madden                                    %
+%                                                                              %
+% This software is released under the terms of the GNU General Public License  %
+% version 3 (GPLv3).                                                           %
+%                                                                              %
+% This program is free software: you can redistribute it and/or modify it      %
+% under the terms of the GNU General Public License as published by the Free   %
+% Software Foundation, either version 3 of the License, or (at your option)    %
+% any later version.                                                           %
+%                                                                              %
+% This program is distributed in the hope that it will be useful, but WITHOUT  %
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or        %
+% FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for    %
+% more details.                                                                %
+%                                                                              %
+% For a copy of the GNU General Public License, see                            %
+% <http://www.gnu.org/licenses/>.                                              %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+\usepackage{feynmp}
+\usepackage{ifpdf}
+\ifpdf
+    \DeclareGraphicsRule{*}{mps}{*}{}
+\fi
+
+\unitlength=1.00 mm
+
+\begin{document}
+\begin{fmffile}{fmftempl}
+\begin{fmfchar*}(100,70)
+
+\fmfleftn{i}{2}                         % 2 initial states
+\fmfrightn{o}{8}                        % 8 final states
+
+\fmf{curly}{i1,v1}                      % g
+\fmf{curly}{i2,v2}                      % g
+\fmf{fermion, label=\(\bar{t}\)}{v3,v1} % tbar
+\fmf{fermion, label=\(t\)}{v1,v7}       % t
+\fmf{fermion, label=\(\bar{t}\)}{v7,v2} % tbar
+\fmf{fermion, label=\(t\)}{v2,v4}       % t
+\fmf{fermion}{v4,o6}
+\fmf{fermion}{o3,v3}
+\fmf{photon, label=\(W^{-}\)}{v3,v5}    % W-
+\fmf{photon, label=\(W^{+}\)}{v4,v6}    % W+
+\fmf{fermion}{o2,v5}
+\fmf{fermion}{v5,o1}
+\fmf{fermion}{o7,v6}
+\fmf{fermion}{v6,o8}
+\fmf{dashes, label=\(H^{0}\)}{v7,v8}    % H
+\fmf{fermion}{o4,v8}
+\fmf{fermion}{v8,o5}
+
+\fmflabel{\(g\)}{i1}                    % g
+\fmflabel{\(g\)}{i2}                    % g
+\fmflabel{\(q\)}{o8}                    % q
+\fmflabel{\(\bar{q^{\prime}}\)}{o7}             % q'bar
+\fmflabel{\(b\)}{o6}                    % b
+\fmflabel{\(b\)}{o5}                    % b
+\fmflabel{\(\bar{b}\)}{o4}              % bbar
+\fmflabel{\(\bar{b}\)}{o3}              % bbar
+\fmflabel{\(\bar{\nu}_{l}\)}{o2}        % nubar
+\fmflabel{\(l^{-}\)}{o1}                % l-
+
+\end{fmfchar*}
+\end{fmffile}
+\end{document}
