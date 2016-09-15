@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% ttbb_3                                                                       %
+%                                                                              %
+% version: 2016-09-15T1740Z                                                    %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% DESCRIPTION                                                                  %
+%                                                                              %
+% This program produces a Feynman diagram.                                     %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% LICENCE INFORMATION                                                          %
+%                                                                              %
+% This program produces a document.                                            %
+%                                                                              %
+% copyright (C) 2016 William Breaden Madden                                    %
+%                                                                              %
+% This software is released under the terms of the GNU General Public License  %
+% version 3 (GPLv3).                                                           %
+%                                                                              %
+% This program is free software: you can redistribute it and/or modify it      %
+% under the terms of the GNU General Public License as published by the Free   %
+% Software Foundation, either version 3 of the License, or (at your option)    %
+% any later version.                                                           %
+%                                                                              %
+% This program is distributed in the hope that it will be useful, but WITHOUT  %
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or        %
+% FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for    %
+% more details.                                                                %
+%                                                                              %
+% For a copy of the GNU General Public License, see                            %
+% <http://www.gnu.org/licenses/>.                                              %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+
+\usepackage{feynmp}
+\usepackage{feynmp-auto}
+
+\unitlength=1.00 mm
+
+\begin{document}
+
+\begin{figure}
+
+\begin{fmffile}{gg}
+\begin{fmfchar*}(100,70)
+
+\fmfleftn{i}{2}
+\fmfrightn{o}{4}
+
+\fmf{curly}{i1,v1}
+\fmf{curly}{i2,v2}
+\fmf{fermion}{o1,v1}
+\fmf{fermion}{v1,v3}
+\fmf{fermion}{v3,v2}
+\fmf{fermion}{v2,o4}
+
+\fmf{curly, label=\(g\)}{v3,v4}
+\fmf{fermion}{o2,v4}
+\fmf{fermion}{v4,o3}
+
+\fmf{double,fore=red}{o1,o2}
+\fmf{double,fore=red}{o1,o3}
+\fmf{double,fore=red}{o1,o4}
+\fmf{double,fore=red}{o2,o3}
+\fmf{double,fore=red}{o2,o4}
+\fmf{double,fore=red}{o3,o4}
+
+\fmfforce{xpart(vloc __o1)+70,ypart(vloc __o1)}{o1}
+\fmfforce{xpart(vloc __o4)+70,ypart(vloc __o4)}{o4}
+
+\fmflabel{\(g\)}{i1}
+\fmflabel{\(g\)}{i2}
+\fmflabel{\(\bar{t}\)}{o1}
+\fmflabel{\(\bar{b}\)}{o2}
+\fmflabel{\(b\)}{o3}
+\fmflabel{\(t\)}{o4}
+
+\end{fmfchar*}
+\end{fmffile}
+\end{figure}
+
+\end{document}
