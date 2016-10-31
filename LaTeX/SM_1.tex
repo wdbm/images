@@ -1,0 +1,168 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% SM_1                                                                         %
+%                                                                              %
+% version: 2016-10-31T1123Z                                                    %
+%                                                                              %
+% Will Breaden Madden                                                          %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% DESCRIPTION                                                                  %
+%                                                                              %
+% This program produces a particle diagram.                                    %
+%                                                                              %
+% CONFIGURATION                                                                %
+%                                                                              %
+% Various other settings can be selected using the configuration section.      %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% LICENCE INFORMATION                                                          %
+%                                                                              %
+% This program produces a document.                                            %
+%                                                                              %
+% copyright (C) 2016 William Breaden Madden                                    %
+%                                                                              %
+% This software is released under the terms of the GNU General Public License  %
+% version 3 (GPLv3).                                                           %
+%                                                                              %
+% This program is free software: you can redistribute it and/or modify it      %
+% under the terms of the GNU General Public License as published by the Free   %
+% Software Foundation, either version 3 of the License, or (at your option)    %
+% any later version.                                                           %
+%                                                                              %
+% This program is distributed in the hope that it will be useful, but WITHOUT  %
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or        %
+% FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for     %
+% more details.                                                                %
+%                                                                              %
+% For a copy of the GNU General Public License, see                            %
+% <http://www.gnu.org/licenses/>.                                              %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}
+\usetikzlibrary{fit}
+\usetikzlibrary{backgrounds}
+
+\begin{document}
+
+\begin{figure}[htbp]
+\centering
+
+\tikzstyle{particleblue}=[
+    circle,
+    thick,
+    minimum size=1.2cm,
+    draw=black,
+    fill=blue!20
+]
+\tikzstyle{particlegreen}=[
+    circle,
+    thick,
+    minimum size=1.2cm,
+    draw=black,
+    fill=green!20
+]
+\tikzstyle{particlered}=[
+    circle,
+    thick,
+    minimum size=1.2cm,
+    draw=black,
+    fill=red!20
+]
+\tikzstyle{particleyellow}=[
+    circle,
+    thick,
+    minimum size=1.2cm,
+    draw=black,
+    fill=yellow!40
+]
+\tikzstyle{backgroundblue}=[
+    rectangle,
+    fill=blue!10,
+    inner sep=0.2cm,
+    rounded corners=5mm
+]
+\tikzstyle{backgroundgreen}=[
+    rectangle,
+    fill=green!10,
+    inner sep=0.2cm,
+    rounded corners=5mm
+]
+\tikzstyle{backgroundred}=[
+    rectangle,
+    fill=red!10,
+    inner sep=0.2cm,
+    rounded corners=5mm
+]
+\tikzstyle{backgroundyellow}=[
+    rectangle,
+    fill=yellow!40,
+    inner sep=0.2cm,
+    rounded corners=5mm
+]
+
+\begin{tikzpicture}[>=latex,text height=1.5ex,text depth=0.25ex]
+    % elements in a matrix
+    \matrix[row sep=0.5cm,column sep=0.5cm, nodes={align=right}]{
+        \node (u)      [particleblue   ]{$\mathbf{u}$};         &
+        \node (c)      [particleblue   ]{$\mathbf{c}$};         &
+        \node (t)      [particleblue   ]{$\mathbf{t}$};         &
+        \node (g)      [particlered    ]{$\mathbf{g}$};         &
+        \node (H)      [particlegreen  ]{$\mathbf{H}$};         &
+        \\
+        \node (d)      [particleblue   ]{$\mathbf{d}$};         &
+        \node (s)      [particleblue   ]{$\mathbf{s}$};         &
+        \node (b)      [particleblue   ]{$\mathbf{b}$};         &
+        \node (gamma)  [particlered    ]{$\mathbf{\gamma}$};    &
+        \\
+        \node (e)      [particleyellow ]{$\mathbf{e}$};         &
+        \node (mu)     [particleyellow ]{$\mathbf{\mu}$};       &
+        \node (tau)    [particleyellow ]{$\mathbf{\tau}$};      &
+        \node (Z)      [particlered    ]{$\mathbf{Z}$};         &
+        \\
+        \node (nu_e)   [particleyellow ]{$\mathbf{\nu_{e}}$};   &
+        \node (nu_mu)  [particleyellow ]{$\mathbf{\nu_{\mu}}$}; &
+        \node (nu_tau) [particleyellow ]{$\mathbf{\nu_{\tau}}$};&
+        \node (W)      [particlered    ]{$\mathbf{W}$};         &
+        \\
+    };
+    % background rectanges
+    \begin{pgfonlayer}{background}
+        \node [
+            backgroundblue,
+            fit=(u) (b)
+        ]{};
+        \node [
+            backgroundyellow,
+            fit=(e) (nu_tau)
+        ]{};
+        \node [
+            backgroundred,
+            fit=(g) (W)
+        ]{};
+        \node [
+            backgroundgreen,
+            fit=(H)
+        ]{};
+    \end{pgfonlayer}
+\end{tikzpicture}
+
+\end{figure}
+
+\end{document}
