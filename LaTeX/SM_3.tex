@@ -2,7 +2,7 @@
 %                                                                              %
 % SM_3                                                                         %
 %                                                                              %
-% version: 2016-10-31T1727Z                                                    %
+% version: 2016-10-31T2131Z                                                    %
 %                                                                              %
 % Will Breaden Madden                                                          %
 %                                                                              %
@@ -65,7 +65,6 @@
 \tikzstyle{particleblue}=[
     rectangle,
     thick,
-    minimum size=1.5cm,
     draw=black,
     fill=blue!20,
     minimum size=80pt
@@ -73,7 +72,6 @@
 \tikzstyle{particlegreen}=[
     rectangle,
     thick,
-    minimum size=1.5cm,
     draw=black,
     fill=green!20,
     minimum size=80pt
@@ -81,7 +79,6 @@
 \tikzstyle{particlered}=[
     rectangle,
     thick,
-    minimum size=1.5cm,
     draw=black,
     fill=red!20,
     minimum size=80pt
@@ -89,7 +86,6 @@
 \tikzstyle{particleyellow}=[
     rectangle,
     thick,
-    minimum size=1.5cm,
     draw=black,
     fill=yellow!40,
     minimum size=80pt
@@ -116,51 +112,51 @@
     inner sep=0.2cm
 ]
 
-\newcommand\particleblue[5]{%{label}{name}{mass}{charge}{spin}
+\newcommand\particleblue[5]{% {label}{name}{mass}{charge}{spin}
     \node (#1) [particleblue]{
         \Huge${\boldsymbol{#2}}$};
     \node[below=11pt]{%
         \tiny
-        \begin{tabular}{l}
-        Mass: ${#3}$\\
-        Charge: ${#4}$\\
-        Spin: ${#5}$
+        \begin{tabular}{@{}p{17pt}p{43pt}@{}}
+        Mass:&${#3}$\\
+        Charge:&${#4}$\\
+        Spin:&${#5}$
         \end{tabular}
     };
 }
-\newcommand\particlegreen[5]{%{label}{name}{mass}{charge}{spin}
+\newcommand\particlegreen[5]{% {label}{name}{mass}{charge}{spin}
     \node (#1) [particlegreen]{
         \Huge${\boldsymbol{#2}}$};
     \node[below=11pt]{%
         \tiny
-        \begin{tabular}{l}
-        Mass: ${#3}$\\
-        Charge: ${#4}$\\
-        Spin: ${#5}$
+        \begin{tabular}{@{}p{17pt}p{43pt}@{}}
+        Mass:&${#3}$\\
+        Charge:&${#4}$\\
+        Spin:&${#5}$
         \end{tabular}
     };
 }
-\newcommand\particlered[5]{%{label}{name}{mass}{charge}{spin}
+\newcommand\particlered[5]{% {label}{name}{mass}{charge}{spin}
     \node (#1) [particlered]{
         \Huge${\boldsymbol{#2}}$};
     \node[below=11pt]{%
         \tiny
-        \begin{tabular}{l}
-        Mass: ${#3}$\\
-        Charge: ${#4}$\\
-        Spin: ${#5}$
+        \begin{tabular}{@{}p{17pt}p{43pt}@{}}
+        Mass:&${#3}$\\
+        Charge:&${#4}$\\
+        Spin:&${#5}$
         \end{tabular}
     };
 }
-\newcommand\particleyellow[5]{%{label}{name}{mass}{charge}{spin}
+\newcommand\particleyellow[5]{% {label}{name}{mass}{charge}{spin}
     \node (#1) [particleyellow]{
         \Huge${\boldsymbol{#2}}$};
     \node[below=11pt]{%
         \tiny
-        \begin{tabular}{l}
-        Mass: ${#3}$\\
-        Charge: ${#4}$\\
-        Spin: ${#5}$
+        \begin{tabular}{@{}p{17pt}p{43pt}@{}}
+        Mass:&${#3}$\\
+        Charge:&${#4}$\\
+        Spin:&${#5}$
         \end{tabular}
     };
 }
@@ -168,26 +164,26 @@
 \begin{tikzpicture}[>=latex,text depth=0.00ex]
     % elements in a matrix
     \matrix[row sep=0.5cm,column sep=0.5cm, nodes={align=left}]{
-        \particleblue{u}{u}{2.3\,\si{MeV/c^2}}{2/3}{1/2} &
-        \particleblue{c}{c}{1.275\,\si{GeV/c^2}}{2/3}{1/2} &
-        \particleblue{t}{t}{173.07\,\si{GeV/c^2}}{2/3}{1/2} &
-        \particlered{g}{g}{0}{0}{1~~~~~~~~~~~~~~~} &
-        \particlegreen{H}{H}{126\,\si{GeV/c^2}}{0}{0~~~~~~~~~~~~~~~} &
+        \particleblue{u}{u}{2.3\,\si{MeV/c^2}}{2/3}{1/2}&
+        \particleblue{c}{c}{1.275\,\si{GeV/c^2}}{2/3}{1/2}&
+        \particleblue{t}{t}{173.07\,\si{GeV/c^2}}{2/3}{1/2}&
+        \particlered{g}{g}{0}{0}{1}&
+        \particlegreen{H}{H}{126\,\si{GeV/c^2}}{0}{0}&
         \\
-        \particleblue{d}{d}{4.8\,\si{MeV/c^2}}{-1/3}{1/2} &
-        \particleblue{s}{s}{95\,\si{MeV/c^2}}{-1/3}{1/2} &
-        \particleblue{b}{b}{4.18\,\si{GeV/c^2}}{-1/3}{1/2} &
-        \particlered{gamma}{\gamma}{0}{0}{1~~~~~~~~~~~~~~~} &
+        \particleblue{d}{d}{4.8\,\si{MeV/c^2}}{-1/3}{1/2}&
+        \particleblue{s}{s}{95\,\si{MeV/c^2}}{-1/3}{1/2}&
+        \particleblue{b}{b}{4.18\,\si{GeV/c^2}}{-1/3}{1/2}&
+        \particlered{gamma}{\gamma}{0}{0}{1}&
         \\
-        \particleyellow{e}{e}{0.511\,\si{MeV/c^2}}{-1}{1/2} &
-        \particleyellow{mu}{\mu}{105.7\,\si{MeV/c^2}}{-1}{1/2} &
-        \particleyellow{tau}{\tau}{1.777\,\si{GeV/c^2}}{-1}{1/2} &
-        \particlered{Z}{Z}{91.2\,\si{GeV/c^2}}{0}{1~~~~~~~~~~~~~~~} &
+        \particleyellow{e}{e}{0.511\,\si{MeV/c^2}}{-1}{1/2}&
+        \particleyellow{mu}{\mu}{105.7\,\si{MeV/c^2}}{-1}{1/2}&
+        \particleyellow{tau}{\tau}{1.777\,\si{GeV/c^2}}{-1}{1/2}&
+        \particlered{Z}{Z}{91.2\,\si{GeV/c^2}}{0}{1}&
         \\
-        \particleyellow{nu_e}{\nu_{e}}{<2.2\,\si{eV/c^2}}{0}{1/2} &
-        \particleyellow{nu_mu}{\nu_{\mu}}{0.17\,\si{MeV/c^2}}{0}{1/2} &
-        \particleyellow{nu_tau}{\nu_{\tau}}{15.5\,\si{MeV/c^2}}{0}{1/2} &
-        \particlered{W}{W}{80.4\,\si{GeV/c^2}}{\pm{1}}{1~~~~~~~~~~~~~~~} &
+        \particleyellow{nu_e}{\nu_{e}}{<2.2\,\si{eV/c^2}}{0}{1/2}&
+        \particleyellow{nu_mu}{\nu_{\mu}}{0.17\,\si{MeV/c^2}}{0}{1/2}&
+        \particleyellow{nu_tau}{\nu_{\tau}}{15.5\,\si{MeV/c^2}}{0}{1/2}&
+        \particlered{W}{W}{80.4\,\si{GeV/c^2}}{\pm{1}}{1}&
         \\
     };
     % background rectanges
