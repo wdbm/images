@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                              %
-% SM_1                                                                         %
+% SM_2                                                                         %
 %                                                                              %
-% version: 2016-10-31T1438Z                                                    %
+% version: 2016-10-31T1524Z                                                    %
 %                                                                              %
 % Will Breaden Madden                                                          %
 %                                                                              %
@@ -42,7 +42,7 @@
 %                                                                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[a4paper,10pt]{article}
+\documentclass[a4paper]{article}
 
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
@@ -54,6 +54,7 @@
 \usepackage{tikz}
 \usepackage{verbatim}
 \usepackage[active,tightpage]{preview}
+\usepackage{siunitx}
 \PreviewEnvironment{tikzpicture}
 \setlength\PreviewBorder{5pt}
 \usetikzlibrary{fit}
@@ -67,7 +68,7 @@
 \tikzstyle{particleblue}=[
     circle,
     thick,
-    minimum size=1.2cm,
+    minimum size=1.5cm,
     draw=black,
     fill=blue!20
 ]
@@ -96,50 +97,50 @@
     rectangle,
     fill=blue!10,
     inner sep=0.2cm,
-    rounded corners=5mm
+    rounded corners=10mm
 ]
 \tikzstyle{backgroundgreen}=[
     rectangle,
     fill=green!10,
     inner sep=0.2cm,
-    rounded corners=5mm
+    rounded corners=10mm
 ]
 \tikzstyle{backgroundred}=[
     rectangle,
     fill=red!10,
     inner sep=0.2cm,
-    rounded corners=5mm
+    rounded corners=10mm
 ]
 \tikzstyle{backgroundyellow}=[
     rectangle,
     fill=yellow!40,
     inner sep=0.2cm,
-    rounded corners=5mm
+    rounded corners=10mm
 ]
 
-\begin{tikzpicture}[>=latex,text height=1.5ex,text depth=0.25ex]
+\begin{tikzpicture}[>=latex,text depth=0.00ex]
     % elements in a matrix
-    \matrix[row sep=0.5cm,column sep=0.5cm, nodes={align=right}]{
-        \node (u)      [particleblue   ]{${\mathbf{u}}$};         &
-        \node (c)      [particleblue   ]{${\mathbf{c}}$};         &
-        \node (t)      [particleblue   ]{${\mathbf{t}}$};         &
-        \node (g)      [particlered    ]{${\mathbf{g}}$};         &
-        \node (H)      [particlegreen  ]{${\mathbf{H}}$};         &
+    \matrix[row sep=0.5cm,column sep=0.5cm, nodes={align=left}]{
+        \node (u)      [particleblue   ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{u}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${2.3}$\,\si{MeV/c^{2}}\\~~~charge: ${2/3}$\\~~~spin: ${1/2}$}};&
+        \node (c)      [particleblue   ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{c}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${1.275}$\,\si{GeV/c^{2}}\\~~~charge: ${2/3}$\\~~~spin: ${1/2}$}};&
+        \node (t)      [particleblue   ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{t}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${173.07}$\,\si{GeV/c^{2}}\\~~~charge: ${2/3}$\\~~~spin: ${1/2}$}};&
+        \node (g)      [particlered    ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{g}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${0}$\\~~~charge: ${0}$\\~~~spin: ${1}$}};&
+        \node (H)      [particlegreen  ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{H}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${\simeq126}$\,\si{GeV/c^{2}}\\~~~charge: ${0}$\\~~~spin: ${0}$}};&
         \\
-        \node (d)      [particleblue   ]{${\mathbf{d}}$};         &
-        \node (s)      [particleblue   ]{${\mathbf{s}}$};         &
-        \node (b)      [particleblue   ]{${\mathbf{b}}$};         &
-        \node (gamma)  [particlered    ]{${\mathbf{\gamma}}$};    &
+        \node (d)      [particleblue   ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{d}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${4.8}$\,\si{MeV/c^{2}}\\~~~charge: ${-1/3}$\\~~~spin: ${1/2}$}};&
+        \node (s)      [particleblue   ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{s}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${95}$\,\si{MeV/c^{2}}\\~~~charge: ${-1/3}$\\~~~spin: ${1/2}$}};&
+        \node (b)      [particleblue   ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{b}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${4.18}$\,\si{GeV/c^{2}}\\~~~charge: ${-1/3}$\\~~~spin: ${1/2}$}};&
+        \node (gamma)  [particlered    ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{\gamma}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${0}$\\~~~charge: ${0}$\\~~~spin: ${1}$}};&
         \\
-        \node (e)      [particleyellow ]{${\mathbf{e}}$};         &
-        \node (mu)     [particleyellow ]{${\mathbf{\mu}}$};       &
-        \node (tau)    [particleyellow ]{${\mathbf{\tau}}$};      &
-        \node (Z)      [particlered    ]{${\mathbf{Z}}$};         &
+        \node (e)      [particleyellow ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{e}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${0.511}$\,\si{MeV/c^{2}}\\~~~charge: ${-1}$\\~~~spin: ${1/2}$}};&
+        \node (mu)     [particleyellow ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{\mu}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${105.7}$\,\si{MeV/c^{2}}\\~~~charge: ${-1}$\\~~~spin: ${1/2}$}};&
+        \node (tau)    [particleyellow ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{\tau}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${1.777}$\,\si{GeV/c^{2}}\\~~~charge: ${-1}$\\~~~spin: ${1/2}$}};&
+        \node (Z)      [particlered    ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{Z}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${91.2}$\,\si{GeV/c^{2}}\\~~~charge: ${0}$\\~~~spin: ${1}$}};&
         \\
-        \node (nu_e)   [particleyellow ]{${\mathbf{\nu_{e}}}$};   &
-        \node (nu_mu)  [particleyellow ]{${\mathbf{\nu_{\mu}}}$}; &
-        \node (nu_tau) [particleyellow ]{${\mathbf{\nu_{\tau}}}$};&
-        \node (W)      [particlered    ]{${\mathbf{W}}$};         &
+        \node (nu_e)   [particleyellow ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{\nu_{e}}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${<2.2}$\,\si{eV/c^{2}}\\~~~charge: ${0}$\\~~~spin: ${1/2}$}};&
+        \node (nu_mu)  [particleyellow ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{\nu_{\mu}}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${<0.17}$\,\si{MeV/c^{2}}\\~~~charge: ${0}$\\~~~spin: ${1/2}$}};&
+        \node (nu_tau) [particleyellow ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{\nu_{\tau}}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${<15.5}$\,\si{MeV/c^{2}}\\~~~charge: ${0}$\\~~~spin: ${1/2}$}};&
+        \node (W)      [particlered    ]{\parbox{2.5cm}{\vspace{-12pt}\centering${\mathbf{W}}$\par\raggedright\mbox{}\tiny\\~~~mass: ${80.4}$\,\si{GeV/c^{2}}\\~~~charge: ${\pm1}$\\~~~spin: ${1}$}};&
         \\
     };
     % background rectanges

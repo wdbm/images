@@ -30,6 +30,7 @@ bash <(curl -sL http://cern.ch/go/Qv8F)
 
 ![](LaTeX/particles.png)
 ![](LaTeX/SM_1.png)
+![](LaTeX/SM_2.png)
 ![](LaTeX/ttH_H_to_bb_1.png)
 ![](LaTeX/ttH_H_to_bb_2.png)
 ![](LaTeX/ttH_H_to_bb_3.png)
