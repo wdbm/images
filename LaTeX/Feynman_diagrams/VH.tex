@@ -1,0 +1,62 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% VH                                                                           %
+%                                                                              %
+% version: 2019-02-07T1734Z                                                    %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% DESCRIPTION                                                                  %
+%                                                                              %
+% This program produces a Feynman diagram.                                     %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+% LICENCE INFORMATION                                                          %
+%                                                                              %
+% This program produces a document.                                            %
+%                                                                              %
+% copyright (C) 2019 William Breaden Madden                                    %
+%                                                                              %
+% This software is released under the terms of the GNU General Public License  %
+% version 3 (GPLv3).                                                           %
+%                                                                              %
+% This program is free software: you can redistribute it and/or modify it      %
+% under the terms of the GNU General Public License as published by the Free   %
+% Software Foundation, either version 3 of the License, or (at your option)    %
+% any later version.                                                           %
+%                                                                              %
+% This program is distributed in the hope that it will be useful, but WITHOUT  %
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or        %
+% FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for    %
+% more details.                                                                %
+%                                                                              %
+% For a copy of the GNU General Public License, see                            %
+% <http://www.gnu.org/licenses/>.                                              %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{standalone}
+\usepackage{feynmp-auto}
+
+\begin{document}
+
+\begin{fmffile}{feyngraph}
+    \fmfframe(5,20)(25,24){
+        \begin{fmfgraph*}(120,60)
+            \fmfleft{i1,i2}
+            \fmfright{o1,o2}
+            \fmf{fermion}{i1,v1}
+            \fmf{fermion}{i2,v1}
+            \fmf{boson,label.side=left}{v1, v2}
+            \fmf{boson,label.side=left}{v2, o2}
+            \fmf{dashes}{v2,o1}
+            \fmflabel{${q'}$}{i1}
+            \fmflabel{${q}$}{i2}
+            \fmflabel{${W^{\pm}/Z^{0}}$}{o2}
+            \fmflabel{${H}$}{o1}
+        \end{fmfgraph*}
+    }
+\end{fmffile}
+
+\end{document}
